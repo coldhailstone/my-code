@@ -3,14 +3,14 @@
 		<div class="Popup__background"></div>
 		<div class="Popup__container Popup__size-sm">
 			<div class="Popup__top">
-				<h5 class="Popup__title">{{ tt(`GHS 라벨 ${type}`) }}</h5>
+				<h5 class="Popup__title">{{ tt(`라벨 ${type}`) }}</h5>
 				<button class="Popup__close-btn" @click="hide">
 					<img src="@/assets/svg/popup-close.svg" alt="close" />
 				</button>
 			</div>
 			<div class="Popup__content">
 				<p class="Popup__plain-text">
-					용기 또는 포장의 용량에 따른 인쇄 또는 표찰의 크기
+					용기 또는 포장의 용량에 따른 인쇄의 크기
 				</p>
 				<div class="input-wrap">
 					<label
