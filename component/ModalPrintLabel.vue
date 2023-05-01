@@ -1,5 +1,5 @@
 <template>
-	<div class="Modal ModalPrintGHSLabel Popup__depth3" v-if="isShow">
+	<div class="Modal ModalPrintLabel Popup__depth3" v-if="isShow">
 		<div class="Popup__background"></div>
 		<div class="Popup__container Popup__size-sm">
 			<div class="Popup__top">
@@ -141,7 +141,7 @@ export default {
 			this.hide()
 		},
 		async initExportElement() {
-			const imgUrl = await this.createGHSImageUrl(
+			const imgUrl = await this.createImageUrl(
 				`#${this.targetElementId}`
 			)
 			const [width, height] = this.labelSize.split('x')
@@ -157,7 +157,7 @@ export default {
 		},
 		async print() {
 			printJS({
-				printable: await this.createGHSImageUrl('#exportDiv'),
+				printable: await this.createImageUrl('#exportDiv'),
 				type: 'image',
 				style: this.exportOptions[this.labelSize].isLandscape
 					? '@page { size: landscape; }'
@@ -168,11 +168,11 @@ export default {
 			const aTag = document.createElement('a')
 			document.querySelector('#exportDiv').appendChild(aTag)
 
-			aTag.download = 'GHS.png'
-			aTag.href = await this.createGHSImageUrl('#exportDiv')
+			aTag.download = 'Label.png'
+			aTag.href = await this.createImageUrl('#exportDiv')
 			aTag.click()
 		},
-		async createGHSImageUrl(elementId) {
+		async createImageUrl(elementId) {
 			const canvas = await html2canvas(
 				document.querySelector(elementId),
 				{ scale: 3 }
@@ -186,7 +186,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/scss/global/_common.scss';
 
-.ModalPrintGHSLabel {
+.ModalPrintLabel {
 	.Popup__container {
 		.Popup__content {
 			p {
