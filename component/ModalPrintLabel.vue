@@ -157,7 +157,7 @@ export default {
 		},
 		async print() {
 			printJS({
-				printable: await this.createImageUrl('#exportDiv'),
+				printable: await this.createImageURL('#exportDiv'),
 				type: 'image',
 				style: this.exportOptions[this.labelSize].isLandscape
 					? '@page { size: landscape; }'
@@ -168,11 +168,11 @@ export default {
 			const aTag = document.createElement('a')
 			document.querySelector('#exportDiv').appendChild(aTag)
 
-			aTag.download = 'Label.png'
-			aTag.href = await this.createImageUrl('#exportDiv')
+			aTag.download = 'label.png'
+			aTag.href = await this.createImageURL('#exportDiv')
 			aTag.click()
 		},
-		async createImageUrl(elementId) {
+		async createImageURL(elementId) {
 			const canvas = await html2canvas(
 				document.querySelector(elementId),
 				{ scale: 3 }
