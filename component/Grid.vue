@@ -45,7 +45,7 @@ const MODE = {
 }
 
 export default {
-	name: 'JwGrid',
+	name: 'Grid',
 	props: {
 		mode: {
 			type: String,
